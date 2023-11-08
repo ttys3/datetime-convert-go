@@ -55,6 +55,7 @@ func main() {
 	   Current Time in Tokyo: 2023-11-09 01:58:03.193033945 +0900 JST 1699462683
 	*/
 
+	// since all the timestamp is the same, so below datetime is equal
 	revTime := time.Unix(currentTimestamp, 0)
 	fmt.Println("revTime in UTC      :", revTime.UTC(), revTime.UTC().Unix())
 	fmt.Println("revTime in Local    :", revTime, revTime.Unix())
@@ -65,6 +66,9 @@ func main() {
 	fmt.Println("------------------------------------------------------")
 
 	// unify to UTC timezone datetime
+	// that's to say: convert user datetime to UTC datetime, so we need revert the offset
+	// this is usefull when we need to compare datetime (not timestamp) in a unified timezone like UTC timezone
+	// in this way, we can use timestamp to compare user's local datetime
 	fmt.Println("UTC:      ", revTime.UTC(), "in UTC:", time.Unix(currentTimestamp, 0).UTC(), time.Unix(currentTimestamp, 0).UTC().Unix())
 
 	_, offsetLocal := currentTime.Zone()

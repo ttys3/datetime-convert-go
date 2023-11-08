@@ -56,7 +56,7 @@ func main() {
 	   Current Time in Tokyo: 2023-11-09 01:58:03.193033945 +0900 JST 1699462683
 	*/
 
-	// since all the timestamp is the same, so below datetime is equal
+	// since all the timestamp is the same, so below datetime is equal, they point to the same moment
 	revTime := time.Unix(currentTimestamp, 0)
 	fmt.Println("revTime in UTC      :", revTime.UTC(), revTime.UTC().Unix())
 	fmt.Println("revTime in Local    :", revTime, revTime.Unix())

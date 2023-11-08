@@ -6,12 +6,13 @@ import (
 )
 
 func main() {
-	// Define a time to convert
 	currentTime := time.Now()
 	fmt.Println("Current Time in Local    :", currentTime, currentTime.Unix())
 	currentTimestamp := currentTime.Unix()
 
 	// Display the current time in UTC
+	// timezone info never affects the Unix timestamp result because, at any given moment, all places in the world have the same timestamp.
+	// below, we are calling `.Unix()` in a specific timezone for demonstrative purposes.
 	fmt.Println("Current Time in UTC      :", currentTime.UTC(), currentTime.UTC().Unix())
 
 	// Define the time zone you want to convert from
